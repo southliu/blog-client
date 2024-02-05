@@ -1,6 +1,11 @@
 {
-  "name": "@south-blog/utils",
+  "name": "@south-blog/shared",
   "main": "index.ts",
+  "exports": {
+    ".": {
+      "require": "./index.ts"
+    }
+  },
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,14 +15,15 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^20.11.16",
-    "@unocss/preset-attributify": "^0.58.4",
-    "@unocss/preset-icons": "^0.58.4",
     "typescript": "^5.2.2",
-    "unocss": "^0.58.4",
     "vite": "^5.0.8"
   },
   "ts-node": {
     "esm": true
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0"
   }
 }

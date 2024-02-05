@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@south-blog/apis": "workspace:^",
-    "@south-blog/utils": "workspace:^",
+    "@south-blog/shared": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

@@ -6,6 +6,6 @@ packages:
   # api basic axios request
   - 'apis/**'
   # all utils in subdirs
-  - 'utils/**'
+  - 'shared/**'
   # exclude packages that are inside test directories
   - '!**/test/**'
