@@ -3,7 +3,7 @@ import type { DefaultComponent } from "@loadable/component";
 import { handleRoutes } from "./utils/helper";
 import { useRoutes } from "react-router-dom";
 import { NotFound } from '@south-blog/components';
-import Layout from '@/layouts';
+import Layout from '../layouts';
 
 type PageFiles = Record<string, () => Promise<DefaultComponent<unknown>>>;
 const pages = import.meta.glob('../pages/**/*.tsx') as PageFiles;

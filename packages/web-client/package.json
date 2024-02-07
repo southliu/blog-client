@@ -1,7 +1,7 @@
 {
-  "name": "web-client",
+  "name": "h5-client",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@south-blog/apis": "workspace:^",
+    "@south-blog/components": "workspace:^",
     "@south-blog/shared": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

@@ -1,7 +1,7 @@
 {
   "name": "blog-client",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.18.4",
     "@ant-design/icons": "^5.3.0",
+    "antd": "^5.14.0",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -19,7 +20,7 @@
   },
   "devDependencies": {
     "@loadable/component": "^5.16.3",
-    "@types/loadable__component": "^5.13.5",
+    "@types/loadable__component": "^5.13.8",
     "@types/nprogress": "^0.2.3",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",

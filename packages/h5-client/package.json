@@ -1,7 +1,7 @@
 {
-  "name": "h5-client",
+  "name": "web-client",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@south-blog/apis": "workspace:^",
+    "@south-blog/components": "workspace:^",
     "@south-blog/shared": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -26,5 +27,8 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
+  },
+  "ts-node": {
+    "esm": true
   }
 }

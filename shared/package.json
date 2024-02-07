@@ -1,13 +1,8 @@
 {
   "name": "@south-blog/shared",
   "main": "index.ts",
-  "exports": {
-    ".": {
-      "require": "./index.ts"
-    }
-  },
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
