@@ -4,7 +4,7 @@ function Layout() {
   const outlet = useOutlet();
 
   return (
-    <div className="text-red">
+    <div>
       <div>top</div>
       <div>
         { outlet }
