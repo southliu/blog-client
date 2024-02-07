@@ -15,6 +15,20 @@ export default defineConfig({
       ]
     })
   ],
+  resolve: {
+    alias: {
+      '@': '/src',
+      '#': '/types'
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+        charset: false
+      },
+    },
+  },
   server: {
     open: true
   },
