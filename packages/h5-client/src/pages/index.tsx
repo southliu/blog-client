@@ -1,17 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import BlogPage from "./blog";
 
 function IndexPage() {
-  const navigate = useNavigate();
-
   return (
-    <>
-      <p className="text-red">
-        IndexPage
-      </p>
-      <div className='cursor-pointer' onClick={() => navigate('/demo')}>
-        go demo
-      </div>
-    </>
+    <BlogPage />
   );
 }
 

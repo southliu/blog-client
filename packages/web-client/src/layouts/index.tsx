@@ -1,6 +1,6 @@
 import { useOutlet } from 'react-router-dom';
-import Header from './components/Header';
 import { Footer } from '@south-blog/components';
+import Header from './components/Header';
 
 function Layout() {
   const outlet = useOutlet();
@@ -8,10 +8,12 @@ function Layout() {
   return (
     <div>
       <Header />
-      <div className='bg-#f5f6f9 h-1000px'>
-        { outlet }
+      <div className='bg-#f5f6f9'>
+        <div className='mx-15vw h-1000px'>
+          { outlet }
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-function HomePage() {
+function BlogPage() {
   const navigate = useNavigate();
 
   return (
     <>
       <p className="text-red">
-        HomePage
+        BlogPage
       </p>
       <div className='cursor-pointer' onClick={() => navigate('/demo')}>
         go demo
@@ -15,4 +15,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default BlogPage;
