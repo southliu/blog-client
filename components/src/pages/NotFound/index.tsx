@@ -7,7 +7,7 @@ function NotFound() {
 
   /** 跳转首页 */
   const goIndex = () => {
-    navigate('/home');
+    navigate('/blog');
   };
 
   return (

@@ -8,7 +8,7 @@ function DemoPage() {
       <p className="text-red">
         DemoPage
       </p>
-      <div className='cursor-pointer' onClick={() => navigate('/home')}>
+      <div className='cursor-pointer' onClick={() => navigate('/blog')}>
         go Home
       </div>
     </>

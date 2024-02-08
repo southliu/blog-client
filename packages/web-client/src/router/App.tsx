@@ -1,6 +1,6 @@
 import type { RouteObject } from "react-router-dom";
 import type { DefaultComponent } from "@loadable/component";
-import { handleRoutes } from "./utils/helper";
+import { handleRoutes } from "@south-blog/shared";
 import { useRoutes } from "react-router-dom";
 import { NotFound } from '@south-blog/components';
 import Layout from '@/layouts';

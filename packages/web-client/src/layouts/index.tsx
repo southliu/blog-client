@@ -1,15 +1,17 @@
 import { useOutlet } from 'react-router-dom';
+import Header from './components/Header';
+import { Footer } from '@south-blog/components';
 
 function Layout() {
   const outlet = useOutlet();
 
   return (
-    <div className="text-red">
-      <div>top</div>
-      <div>
+    <div>
+      <Header />
+      <div className='bg-#f5f6f9 h-1000px'>
         { outlet }
       </div>
-      <div>bottom</div>
+      <Footer />
     </div>
   );
 }
