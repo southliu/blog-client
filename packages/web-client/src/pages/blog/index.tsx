@@ -1,18 +1,20 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import BlogList from "./components/BlogList";
+import CategoryList from "./components/CategoryList";
+import BlogRight from "./components/BlogRight";
 
-function HomePage() {
-  const navigate = useNavigate();
+function BlogPage() {
+  // const navigate = useNavigate();
+
+  // const
 
   return (
-    <>
-      <p className="text-red">
-        HomePage
-      </p>
-      <div className='cursor-pointer' onClick={() => navigate('/demo')}>
-        go demo
-      </div>
-    </>
+    <div className="flex justify-between pt-40px">
+      <CategoryList />
+      <BlogList />
+      <BlogRight />
+    </div>
   );
 }
 
-export default HomePage;
+export default BlogPage;

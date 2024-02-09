@@ -18,10 +18,7 @@ function Header() {
     navigate('/blog');
   };
 
-  /**
-   * 处理点击事件
-   * @param value - 点击值
-   */
+  /** 处理点击事件 */
   const handleClick = (value: string) => {
     setActive(value);
     navigate(`/${value}`);
@@ -29,7 +26,7 @@ function Header() {
 
   return (
     <div className="h-60px">
-      <div className="w-full h-60px flex items-center justify-between px-15vw box-border bg-#fff fixed top-0 z-999">
+      <div className="w-full h-60px flex items-center justify-between px-15vw box-border bg-#fff fixed top-0">
         <div>
           <span className="cursor-pointer" onClick={handleGoHome}>
             SouthLiu
