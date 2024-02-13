@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Footer } from '@south-blog/components';
 import "./globals.css";
-import '../../../../shared/styles/reset.scss';
-import '../../../../shared/styles/index.scss';
+import '../../../../shared/styles/reset.css';
+import '../../../../shared/styles/index.css';
 import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,12 +19,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh">
-      <body className={inter.className}>
+    <html lang="en">
+      <body className={inter.className} suppressHydrationWarning={true}>
         <div>
           <Header />
-          <div className='bg-#f5f6f9'>
-            <div className='mx-15vw h-1000px'>
+          <div className='bg-[#f5f6f9]'>
+            <div className='mx-[15vw] h-[1000px]'>
               { children }
             </div>
             <Footer />

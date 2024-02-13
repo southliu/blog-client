@@ -30,8 +30,8 @@ function Header() {
   };
 
   return (
-    <div className="h-60px">
-      <div className="w-full h-60px flex items-center justify-between px-15vw box-border bg-#fff fixed top-0 z-999">
+    <div className="h-[60px]">
+      <div className="w-full h-[60px] flex items-center justify-between px-[15vw] box-border bg-[#fff] fixed top-0 z-999">
         <div>
           <span className="cursor-pointer" onClick={handleGoHome}>
             SouthLiu
@@ -42,13 +42,13 @@ function Header() {
             tabs.map(item => (
               <div
                 key={item.value}
-                className="h-60px flex flex-col items-center justify-between ml-30px"
+                className="h-[60px] flex flex-col items-center justify-between ml-[30px]"
               >
                 <div
-                  className={`h-60px cursor-pointer flex items-center ${active === item.value ? 'text-#777bce' : ''}`}
+                  className={`h-[60px] cursor-pointer flex items-center ${active === item.value ? 'text-[#777bce]' : ''}`}
                   onClick={() => handleClick(item.value)}
                 >
-                  <Icon className="mr-5px" icon={item.icon} />
+                  <Icon className="mr-[5px]" icon={item.icon} />
                   <span>
                     { item.label }
                   </span>
@@ -56,7 +56,7 @@ function Header() {
 
                 {
                   active === item.value ?
-                  <div className="w-30px h-3px bg-#777bce rd-20px absolute bottom-0" />
+                  <div className="w-[30px] h-[3px] bg-[#777bce] rd-[20px] absolute bottom-0" />
                   : <span />
                 }
               </div>
