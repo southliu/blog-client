@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Footer } from '@south-blog/components';
 import "./globals.css";
+import '../../../../shared/styles/reset.css';
+import '../../../../shared/styles/index.css';
+import Header from "@/components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +20,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <div>
+          <Header />
+          <div className='bg-[#f5f6f9]'>
+            <div className='mx-[15vw] h-[1000px]'>
+              { children }
+            </div>
+            <Footer />
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
