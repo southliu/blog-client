@@ -12,7 +12,6 @@
           :key="item.value"
         >
           <div
-            key={item.value}
             class="h-60px flex flex-col items-center justify-between ml-30px"
           >
             <div

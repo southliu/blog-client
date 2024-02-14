@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@south-blog/apis": "workspace:^",
     "@south-blog/components": "workspace:^",
     "@south-blog/shared": "workspace:^",
     "vue": "^3.4.15"

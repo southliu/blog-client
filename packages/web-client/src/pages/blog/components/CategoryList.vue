@@ -11,7 +11,7 @@
         @click="handleClick(item.value)"
       >
         <Icon
-          icon={item.icon}
+          :icon="item.icon"
           class="text-20px mr-8px"
         />
         <span>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-#fff w-100% rd-r-5px mr-10px flex-1 z-2">
+  <div class="bg-#fff w-full h-full rd-r-5px mr-10px flex-1 z-2">
     <div
       v-for="item in list"
       :key="item.date"
