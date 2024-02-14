@@ -2,7 +2,9 @@
   <main>
     <Header />
     <div class='content'>
-      <RouterView />
+      <div class="mx-15vw">
+        <RouterView />
+      </div>
     </div>
     <Footer />
   </main>
