@@ -1,8 +1,3 @@
-# 安装插件
-```
-pnpm create next-app
-```
-
 ### 安装依赖
 ```
 pnpm i
