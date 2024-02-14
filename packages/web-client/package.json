@@ -1,7 +1,7 @@
 {
   "name": "web-client",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@south-blog/components": "workspace:^",
+    "@south-blog/shared": "workspace:^",
     "vue": "^3.4.15"
   },
   "devDependencies": {
