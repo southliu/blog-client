@@ -31,6 +31,7 @@
       "vite-plugin-pwa/client",
       "vite-plugin-pages/client",
       "vite-plugin-vue-layouts/client",
+      "@south-blog/shared",
     ]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],

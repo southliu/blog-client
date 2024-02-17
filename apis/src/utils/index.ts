@@ -41,7 +41,7 @@ function creteRequest(url: string) {
           handleError(data?.message);
           return res;
         }
-    
+
         return res;
       },
       responseInterceptorsCatch(err) {
