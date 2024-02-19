@@ -11,7 +11,7 @@ import { useHead } from '@unhead/vue';
 import BlogList from "./components/BlogList.vue";
 import CategoryList from "./components/CategoryList.vue";
 import BlogRight from "./components/BlogRight.vue";
-import { getBlogPage } from '@south-blog/apis';
+import { getArticlePage, getCategory } from '@south-blog/apis';
 import { onMounted } from 'vue';
 
 useHead({
@@ -30,8 +30,12 @@ useHead({
 });
 
 onMounted(() => {
-  getBlogPage({ current: 1, pageSize: 2 }).then(res => {
-    console.log('res:', res);
+  getArticlePage({ current: 1, pageSize: 2 }).then(res => {
+    console.log('getArticlePage:', res);
+  });
+
+  getCategory().then(res => {
+    console.log('getCategory:', res);
   });
 });
 </script>
