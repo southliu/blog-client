@@ -3,19 +3,19 @@
     <div class="fixed left-15vw">
       <div
         v-for="item in list"
-        :key="item.value"
+        :key="item.id"
         :class="`
           category-item
-          ${item.value === active ? 'category-shadow' : ''}
+          ${item.id === active ? 'category-shadow' : ''}
         `"
-        @click="handleClick(item.value)"
+        @click="handleClick(item.id)"
       >
         <Icon
           :icon="item.icon"
           class="text-20px mr-8px"
         />
         <span>
-          {{ item.label }}
+          {{ item.name }}
         </span>
       </div>
     </div>
@@ -23,34 +23,29 @@
 </template>
 
 <script lang="ts" setup>
-import type { LabelValueObj } from "@south-blog/shared";
-import { ref } from 'vue';
+import type { CategoryData } from '../data';
+import { ref, watch } from 'vue';
 import { Icon } from '@iconify/vue';
 
-interface CategoryData extends LabelValueObj {
-  icon: string;
+interface DefineProps {
+  list: CategoryData[]
 }
 
-const active = ref('all');
+const props = withDefaults(defineProps<DefineProps>(), {});
 
-const list: CategoryData[] = [
-  {
-    label: '全部分类',
-    value: 'all',
-    icon: 'bx:category',
-  },
-  {
-    label: '未分类',
-    value: 'none',
-    icon: 'bx:category',
-  },
-];
+const active = ref(props.list?.[0]?.id ?? 0);
+
+watch(() => props.list, list => {
+  if (list?.length) {
+    active.value = list?.[0]?.id;
+  }
+});
 
 /**
  * 处理点击事件
  * @param value - 点击值
  */
-const handleClick = (value: string) => {
+const handleClick = (value: number) => {
   active.value = value;
 };
 </script>

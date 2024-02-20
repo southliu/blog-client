@@ -3,7 +3,8 @@
     <div
       v-for="item in list"
       :key="item.date"
-      class="mx-20px py-20px b-b b-#ececec"
+      class="mx-20px py-20px b-b b-#ececec cursor-pointer"
+      @click="handleClick(item.id)"
     >
       <div class="text-13px text-#777 mb-10px">
         {{ item.date }}
@@ -12,14 +13,14 @@
         {{ item.title }}
       </div>
       <div class="flex items-center text-#777">
-        <div v-if="item.category" class="flex items-center mr-20px">
+        <div v-if="item.categoryName" class="flex items-center mr-20px">
           <Icon
             v-if="item.categoryIcon"
             class="mr-3px"
             :icon="item.categoryIcon"
           />
           <span>
-            {{ item.category }}
+            {{ item.categoryName }}
           </span>
         </div>
         <div class="flex items-center mr-20px">
@@ -35,30 +36,19 @@
 </template>
 
 <script lang="ts" setup>
+import type { ArticleData } from '../data';
 import { Icon } from '@iconify/vue';
 
-interface ListData {
-  date: string;
-  title: string;
-  category?: string;
-  categoryIcon?: string;
-  visit: number;
+interface DefineProps {
+  list: ArticleData[]
 }
 
-const list: ListData[] = [
-  {
-    date: '2022/08/26',
-    title: '这是标题',
-    category: '全部分类',
-    categoryIcon: 'bx:category',
-    visit: 100
-  },
-  {
-    date: '2022/02/26',
-    title: '这是标题2',
-    category: '全部分类',
-    categoryIcon: 'bx:category',
-    visit: 10
-  },
-];
+withDefaults(defineProps<DefineProps>(), {});
+
+/**
+ * 点击按钮
+ */
+const handleClick = (id: number) => {
+  console.log('handleClick:', id);
+};
 </script>
