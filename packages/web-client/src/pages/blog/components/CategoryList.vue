@@ -1,21 +1,21 @@
 <template>
   <div class="w-180px block">
-    <div class="fixed left-15vw">
+    <div class="fixed left-15vw max-h-70vh overflow-auto">
       <div
-        v-for="item in list"
-        :key="item.value"
+        v-for="item in categoryList"
+        :key="item.id"
         :class="`
           category-item
-          ${item.value === active ? 'category-shadow' : ''}
+          ${item.id === active ? 'category-shadow' : ''}
         `"
-        @click="handleClick(item.value)"
+        @click="handleClick(item.id)"
       >
         <Icon
           :icon="item.icon"
           class="text-20px mr-8px"
         />
         <span>
-          {{ item.label }}
+          {{ item.name }}
         </span>
       </div>
     </div>
@@ -23,34 +23,37 @@
 </template>
 
 <script lang="ts" setup>
-import type { LabelValueObj } from "@south-blog/shared";
-import { ref } from 'vue';
+import type { CategoryData } from '../data';
+import { onMounted, ref } from 'vue';
 import { Icon } from '@iconify/vue';
+import { getCategory } from '@south-blog/apis';
 
-interface CategoryData extends LabelValueObj {
-  icon: string;
-}
+const active = ref(0);
+const categoryList = ref<CategoryData[]>([]);
+const isArticleLoading = ref(false);
 
-const active = ref('all');
+onMounted(() => {
+  getCategoryList();
+});
 
-const list: CategoryData[] = [
-  {
-    label: '全部分类',
-    value: 'all',
-    icon: 'bx:category',
-  },
-  {
-    label: '未分类',
-    value: 'none',
-    icon: 'bx:category',
-  },
-];
+/** 获取文章列表 */
+const getCategoryList = async () => {
+  try {
+    isArticleLoading.value = true;
+    const { code, data } = await getCategory();
+    if (Number(code) !== 200) return;
+    categoryList.value = (data as CategoryData[]) || [];
+    active.value = categoryList.value?.[0]?.id ?? 0;
+  } finally {
+    isArticleLoading.value = false;
+  }
+};
 
 /**
  * 处理点击事件
  * @param value - 点击值
  */
-const handleClick = (value: string) => {
+const handleClick = (value: number) => {
   active.value = value;
 };
 </script>

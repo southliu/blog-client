@@ -24,7 +24,6 @@ const goIndex = () => {
 };
 </script>
 
-
 <style lang="less" scoped>
 .animation {
   animation: shake .6s ease-in-out infinite alternate;
