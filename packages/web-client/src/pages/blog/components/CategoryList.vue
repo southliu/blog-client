@@ -1,8 +1,8 @@
 <template>
   <div class="w-180px block">
-    <div class="fixed left-15vw">
+    <div class="fixed left-15vw max-h-70vh overflow-auto">
       <div
-        v-for="item in list"
+        v-for="item in categoryList"
         :key="item.id"
         :class="`
           category-item
@@ -24,22 +24,30 @@
 
 <script lang="ts" setup>
 import type { CategoryData } from '../data';
-import { ref, watch } from 'vue';
+import { onMounted, ref } from 'vue';
 import { Icon } from '@iconify/vue';
+import { getCategory } from '@south-blog/apis';
 
-interface DefineProps {
-  list: CategoryData[]
-}
+const active = ref(0);
+const categoryList = ref<CategoryData[]>([]);
+const isArticleLoading = ref(false);
 
-const props = withDefaults(defineProps<DefineProps>(), {});
-
-const active = ref(props.list?.[0]?.id ?? 0);
-
-watch(() => props.list, list => {
-  if (list?.length) {
-    active.value = list?.[0]?.id;
-  }
+onMounted(() => {
+  getCategoryList();
 });
+
+/** 获取文章列表 */
+const getCategoryList = async () => {
+  try {
+    isArticleLoading.value = true;
+    const { code, data } = await getCategory();
+    if (Number(code) !== 200) return;
+    categoryList.value = (data as CategoryData[]) || [];
+    active.value = categoryList.value?.[0]?.id ?? 0;
+  } finally {
+    isArticleLoading.value = false;
+  }
+};
 
 /**
  * 处理点击事件

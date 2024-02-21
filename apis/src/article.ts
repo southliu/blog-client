@@ -8,3 +8,11 @@ export const getArticlePage = (params: unknown) => {
 export const getCategory = () => {
   return request.get<unknown[]>('/category');
 };
+
+export const getCategoryTop = () => {
+  return request.get<unknown[]>('/category/top');
+};
+
+export const getArticleTop = () => {
+  return request.get<unknown[]>('/article/top');
+};

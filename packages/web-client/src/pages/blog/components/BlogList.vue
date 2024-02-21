@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-#fff w-full h-full rd-r-5px mr-10px flex-1 z-2">
+  <div class="bg-#fff w-full rd-r-5px mr-10px flex-1 z-2">
     <div
-      v-for="item in list"
+      v-for="item in articleList"
       :key="item.date"
       class="mx-20px py-20px b-b b-#ececec cursor-pointer"
       @click="handleClick(item.id)"
@@ -36,14 +36,37 @@
 </template>
 
 <script lang="ts" setup>
+import { onMounted, ref } from 'vue';
 import type { ArticleData } from '../data';
 import { Icon } from '@iconify/vue';
+import { getArticlePage } from '@south-blog/apis';
+import { useRoute } from 'vue-router';
 
-interface DefineProps {
-  list: ArticleData[]
-}
+const route = useRoute();
+const isLoading = ref(false);
+const articleList = ref<ArticleData[]>([]);
 
-withDefaults(defineProps<DefineProps>(), {});
+onMounted(() => {
+  getArticleList();
+});
+
+/** 获取文章列表 */
+const getArticleList = async () => {
+  const params = {
+    current: 1,
+    pageSize: 2,
+    category: (route.params as { name: string })?.name,
+  };
+
+  try {
+    isLoading.value = true;
+    const { code, data } = await getArticlePage(params);
+    if (Number(code) !== 200) return;
+    articleList.value = (data.records as ArticleData[]) || [];
+  } finally {
+    isLoading.value = false;
+  }
+};
 
 /**
  * 点击按钮
